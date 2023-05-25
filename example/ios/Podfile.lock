@@ -7,7 +7,7 @@ PODS:
     - AudioKit/Core
   - Flutter (1.0.0)
   - sound_generator (0.0.1):
-    - AudioKit
+    - AudioKit (< 5)
     - Flutter
 
 DEPENDENCIES:
@@ -26,9 +26,9 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AudioKit: 57cc61d708f085763a031e5c3f87adae21dc4b59
-  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
-  sound_generator: b182ddad2c3c4d6243a8dbaf6e4975974d27c40f
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  sound_generator: 9dbd7c16f7023add0e875c150c6e64ed47a71b6a
 
 PODFILE CHECKSUM: 0a1da3e36b82927f963e5c2f6f6ba6efed8794eb
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.12.0
