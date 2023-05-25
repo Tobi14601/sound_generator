@@ -21,8 +21,15 @@ public class SwiftSoundGeneratorPlugin: NSObject, FlutterPlugin {
     self.panner = AKPanner(self.oscillator, pan: 0.0)
     self.mixer = AKMixer(self.panner!)
     self.mixer!.volume = 1.0
-    AKSettings.disableAVAudioSessionCategoryManagement = true
-    AKSettings.disableAudioSessionDeactivationOnStop = true
+    //AKSettings.disableAVAudioSessionCategoryManagement = true
+    //AKSettings.disableAudioSessionDeactivationOnStop = true
+    do {
+        try AKSettings.setSession(category: .playAndRecord, with: [.defaultToSpeaker, .allowBluetooth, .allowBluetoothA2DP, .mixWithOthers])
+    } catch let error {
+        print("Error setting session \(error)")
+    }
+      
+    AKSettings.playbackWhileMuted = true
     AKManager.output = self.mixer!
     let methodChannel = FlutterMethodChannel(name: "sound_generator", binaryMessenger: registrar.messenger())
     self.onChangeIsPlaying = BetterEventChannel(name: "io.github.mertguner.sound_generator/onChangeIsPlaying", messenger: registrar.messenger())
